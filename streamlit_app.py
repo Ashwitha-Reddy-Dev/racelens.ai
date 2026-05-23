@@ -1,4 +1,5 @@
 import streamlit as st  # type: ignore
+api_key = st.secrets["IBM_API_KEY"]
 from racelens_core import RaceLensOrchestrator, F1DataFetcher
 
 # Page setup
