@@ -1,4 +1,6 @@
-streamlit
-langchain
-pandas
-numpy
+streamlit==1.31.1
+google-generativeai==0.3.0
+langchain==0.1.13
+langchain-replicate==0.1.0
+pandas==2.1.4
+numpy==1.26.3

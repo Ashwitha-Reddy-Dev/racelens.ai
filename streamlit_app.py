@@ -1,7 +1,7 @@
 import streamlit as st  # type: ignore
 api_key = st.secrets["IBM_API_KEY"] 
 model_id = st.secrets["MODEL_ID"]
-from racelens_core import RaceLensOrchestrator, F1DataFetcher
+from racelens_gemini import RaceLensOrchestrator
 
 # Page setup
 st.set_page_config(
@@ -47,8 +47,16 @@ with st.sidebar:
     - What-if scenarios
     """)
 
-# Current Race State
-race_data = racelens.data.get_sample()
+# Current Race State (sample data)
+race_data = {
+    "circuit": "Bahrain",
+    "lap": 35,
+    "total_laps": 57,
+    "positions": [
+        {"position": 1, "driver": "Lando Norris", "gap": "—", "tire": "HARD"},
+        {"position": 2, "driver": "Max Verstappen", "gap": "+2.3s", "tire": "HARD"},
+    ]
+}
 
 st.subheader("📊 Current Race State")
 col1, col2, col3, col4 = st.columns(4)
