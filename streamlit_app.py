@@ -1,6 +1,9 @@
+import os
+from dotenv import load_dotenv
 import streamlit as st  # type: ignore
-api_key = st.secrets["IBM_API_KEY"] 
-model_id = st.secrets["MODEL_ID"]
+load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
+model_id = "gemini_2.5_flash"
 from racelens_gemini import RaceLensOrchestrator
 
 # Page setup
