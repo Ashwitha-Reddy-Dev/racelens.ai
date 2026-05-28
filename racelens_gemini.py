@@ -1,6 +1,6 @@
 import os
 from dotenv import load_dotenv
-
+import time
 load_dotenv()
 import json
 from typing import Dict, List
@@ -54,10 +54,10 @@ Be detailed, technical but understandable."""
             
             response = self.model.generate_content(prompt)
             answer_text = response.text
-            
+            time.sleep(12)
             return RaceLensAnswer(
                 answer=answer_text,
-                sources=["Google Gemini AI Analysis", "F1 Knowledge", "Racing Strategy"],
+                sources=["Google Gemini AI Analysis", "F1 Knowledge"],
                 confidence=85
             )
         

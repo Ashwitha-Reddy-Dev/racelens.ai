@@ -21,7 +21,7 @@ st.markdown("---")
 
 # Initialize
 if "racelens" not in st.session_state:
-    st.session_state.racelens = RaceLensOrchestrator()
+    st.session_state.racelens = RaceLensOrchestrator(api_key=api_key, model_id=model_id)
 
 racelens = st.session_state.racelens
 
@@ -81,7 +81,8 @@ for p in race_data["positions"][:3]:
         "Driver": p["driver"],
         "Gap": p["gap"],
         "Tire": p["tire"],
-        "Speed": f"{p['speed']} km/h"
+        "Speed": f"{p.get('speed', 'N/A')} km/h"
+        if p.get('speed') else "N/A"
     })
 st.dataframe(positions_data, use_container_width=True, hide_index=True)
 
